@@ -1,6 +1,6 @@
 {
-  "name": "Student PDF Marks Management System",
-  "description": "A browser-based student marks management system with rule-based PDF parsing, field normalization, student matching, and IndexedDB local storage.",
+  "name": "Govt. SHMM Degree College Anantnag - MarksMaster",
+  "description": "Official Student PDF Marks Management, Normalization & Academic Result Registry for Govt. SHMM Degree College Anantnag.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
