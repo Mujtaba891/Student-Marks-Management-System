@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 const getAiClient = () => {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    throw new Error('GEMINI_API_KEY is not configured in server environment.');
+    throw new Error('GEMINI_API_KEY environment variable is not configured in Vercel. Please go to Vercel Project Settings -> Environment Variables, add GEMINI_API_KEY, and then click REDEPLOY under the Deployments tab.');
   }
   return new GoogleGenAI({
     apiKey,
@@ -25,6 +25,25 @@ const getAiClient = () => {
     },
   });
 };
+
+// Vercel Serverless Function URL Normalization Middleware
+app.use((req, res, next) => {
+  const pathCandidate = (req.headers['x-matched-path'] as string) || req.originalUrl || req.url || '';
+  console.log(`[Express Middleware] Method: ${req.method}, Path Candidate: "${pathCandidate}", Raw URL: "${req.url}"`);
+
+  if (pathCandidate.includes('extract-marksheet')) {
+    req.url = '/api/gemini/extract-marksheet';
+  } else if (pathCandidate.includes('insights')) {
+    req.url = '/api/gemini/insights';
+  } else if (pathCandidate.includes('chat')) {
+    req.url = '/api/gemini/chat';
+  } else if (pathCandidate.includes('parse-students')) {
+    req.url = '/api/gemini/parse-students';
+  } else if (pathCandidate.includes('health')) {
+    req.url = '/api/health';
+  }
+  next();
+});
 
 // Health check endpoint
 app.get(['/api/health', '/health'], (req, res) => {
