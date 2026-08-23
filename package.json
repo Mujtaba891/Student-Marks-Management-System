@@ -24,8 +24,7 @@
     "motion": "^12.23.24",
     "pdfjs-dist": "^6.2.108",
     "react": "^19.0.1",
-    "react-dom": "^19.0.1",
-    "vite": "^6.2.3"
+    "react-dom": "^19.0.1"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0",
