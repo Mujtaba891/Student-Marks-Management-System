@@ -1,0 +1,6 @@
+{
+  "name": "Student PDF Marks Management System",
+  "description": "A browser-based student marks management system with rule-based PDF parsing, field normalization, student matching, and IndexedDB local storage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
