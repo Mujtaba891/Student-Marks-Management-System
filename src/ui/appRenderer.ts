@@ -284,7 +284,7 @@ export class AppRenderer {
           <!-- Logo & Brand Header -->
           <div class="p-4 md:p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <img src="/GDC-LOGO.png" alt="Logo" class="w-9 h-9 object-contain rounded-xl shadow-sm bg-white p-0.5 border border-slate-200 dark:border-slate-700" onerror="this.onerror=null; this.src='/src/public/GDC-LOGO.png';" />
+              <img src="/GDC-LOGO.png" alt="Logo" class="w-9 h-9 object-contain rounded-xl shadow-sm bg-white p-0.5 border border-slate-200 dark:border-slate-700" />
               <div>
                 <h1 class="font-extrabold text-xs tracking-tight text-slate-900 dark:text-white leading-tight">Govt. SHMM</h1>
                 <div class="text-[10px] uppercase font-bold text-sky-600 dark:text-sky-400 tracking-wider">Degree College Anantnag</div>
@@ -840,7 +840,7 @@ export class AppRenderer {
         <!-- Institution Banner -->
         <div class="p-4 md:p-6 bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl shadow-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div class="flex items-center gap-4">
-            <img src="/GDC-LOGO.png" alt="College Logo" class="w-14 h-14 md:w-16 md:h-16 object-contain rounded-2xl bg-white/10 p-1.5 backdrop-blur-md border border-white/20 shadow-lg shrink-0" onerror="this.onerror=null; this.src='/src/public/GDC-LOGO.png';" />
+            <img src="/GDC-LOGO.png" alt="College Logo" class="w-14 h-14 md:w-16 md:h-16 object-contain rounded-2xl bg-white/10 p-1.5 backdrop-blur-md border border-white/20 shadow-lg shrink-0" />
             <div>
               <div class="text-xs uppercase tracking-widest text-sky-400 font-bold mb-1">Academic Session ${this.settings.academicSession}</div>
               <h2 class="text-xl md:text-2xl font-black text-amber-300 drop-shadow-sm">${this.settings.institutionName}</h2>

@@ -27,7 +27,7 @@ const getAiClient = () => {
 };
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({
     status: 'ok',
     hasApiKey: Boolean(process.env.GEMINI_API_KEY),
@@ -36,7 +36,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // AI Vision & Table Extraction endpoint for Captured Photos, Scanned Documents & Complex Marksheets
-app.post('/api/gemini/extract-marksheet', async (req, res) => {
+app.post(['/api/gemini/extract-marksheet', '/gemini/extract-marksheet', '/extract-marksheet'], async (req, res) => {
   try {
     const { mimeType, base64Data, fileName } = req.body;
 
@@ -171,7 +171,7 @@ CRITICAL INSTRUCTIONS:
 });
 
 // AI Student Performance Predictor & Alert System endpoint
-app.post('/api/gemini/insights', async (req, res) => {
+app.post(['/api/gemini/insights', '/gemini/insights', '/insights'], async (req, res) => {
   try {
     const { classData } = req.body;
 
@@ -261,7 +261,7 @@ ${JSON.stringify(classData)}
 });
 
 // Chat / Ask AI endpoint
-app.post('/api/gemini/chat', async (req, res) => {
+app.post(['/api/gemini/chat', '/gemini/chat', '/chat'], async (req, res) => {
   try {
     const { prompt, classData } = req.body;
     const ai = getAiClient();
@@ -302,7 +302,7 @@ Please provide a helpful, accurate, and professional response.`;
 });
 
 // AI Magic Import endpoint
-app.post('/api/gemini/parse-students', async (req, res) => {
+app.post(['/api/gemini/parse-students', '/gemini/parse-students', '/parse-students'], async (req, res) => {
   try {
     const { text } = req.body;
     const ai = getAiClient();

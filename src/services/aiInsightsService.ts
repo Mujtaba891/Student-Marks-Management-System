@@ -33,8 +33,18 @@ export async function fetchAiInsights(students: Student[], results: Result[]) {
   });
 
   if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.error || 'Failed to fetch AI insights');
+    let errorMsg = `Server error (${response.status})`;
+    try {
+      const errorData = await response.json();
+      errorMsg = errorData.error || errorMsg;
+    } catch {
+      if (response.status === 500) {
+        errorMsg = 'Server Error (500): Please ensure GEMINI_API_KEY environment variable is configured in Vercel settings and redeploy.';
+      } else {
+        errorMsg = `Server error ${response.status}. Please check backend logs.`;
+      }
+    }
+    throw new Error(errorMsg);
   }
 
   return await response.json();
